@@ -222,7 +222,7 @@ const Hero = () => {
                 ease: "linear",
               }}
             >
-              &gt; Mohammad Naqui_
+              &lt; Mohammad Naqui_ /&gt;
             </motion.h1>
             <motion.p
               className="text-sm sm:text-base md:text-xl lg:text-2xl text-green-400 font-mono break-words"
@@ -261,7 +261,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(34, 197, 94, 0.5)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <span>./view_projects.sh</span>
+              <span>./view_projects.jsx</span>
               <span>🚀</span>
             </motion.a>
             <motion.a
@@ -270,34 +270,12 @@ const Hero = () => {
               whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(34, 197, 94, 0.3)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <span>./contact.sh</span>
+              <span>./contact.jsx</span>
               <span>📧</span>
             </motion.a>
           </motion.div>
 
-          {/* System Status */}
-          <motion.div
-            className="mt-8 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 text-xs md:text-sm px-4 w-full"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 1 }}
-          >
-            {[
-              { label: "Status", value: "Online", color: "text-green-400" },
-              { label: "Projects", value: "3+", color: "text-blue-400" },
-              { label: "Events", value: "15+", color: "text-purple-400" },
-              { label: "CGPA", value: "8.16", color: "text-yellow-400" },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                className="bg-black/40 backdrop-blur-sm rounded-lg p-2 md:p-3 border border-gray-700"
-                whileHover={{ scale: 1.05, borderColor: "#4f46e5" }}
-              >
-                <div className="text-gray-400 text-xs">{stat.label}</div>
-                <div className={`font-bold ${stat.color} text-sm md:text-base`}>{stat.value}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+          
         </div>
       </div>
 
