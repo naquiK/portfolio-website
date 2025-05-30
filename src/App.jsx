@@ -15,29 +15,29 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Reduced loading time and ensure it completes
+  
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 2000) // Reduced from 3000 to 2000
+    }, 2500) 
 
     return () => clearTimeout(timer)
   }, [])
 
   return (
-    <div className="App">
+    <div className="App w-full max-w-full overflow-x-hidden">
       {loading ? (
         <Loader />
       ) : (
         <>
           <Navigation />
-          <div className="pt-16 md:pt-20">
+          <main className="pt-16 md:pt-20 w-full max-w-full overflow-x-hidden">
             <Hero />
             <About />
             <Skills />
             <Experience />
             <Projects />
             <Contact />
-          </div>
+          </main>
         </>
       )}
     </div>

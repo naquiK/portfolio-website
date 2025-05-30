@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -8,7 +6,7 @@ const CodeRain = () => {
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {[...Array(50)].map((_, i) => (
+      {[...Array(30)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute text-green-400 font-mono text-xs opacity-40 md:opacity-60"
@@ -101,7 +99,7 @@ const TypingCode = () => {
   }, [currentLine, currentChar, codeLines])
 
   return (
-    <div className="font-mono text-xs md:text-sm text-green-400 bg-black/80 backdrop-blur-sm rounded-lg p-3 md:p-6 max-w-xs sm:max-w-md md:max-w-4xl w-full border border-green-500/30 mx-auto">
+    <div className="font-mono text-xs md:text-sm text-green-400 bg-black/80 backdrop-blur-sm rounded-lg p-3 md:p-6 w-full max-w-xs sm:max-w-md md:max-w-4xl border border-green-500/30 mx-auto">
       {/* Terminal Header */}
       <div className="flex items-center mb-2 md:mb-4 pb-2 border-b border-green-500/30">
         <div className="flex space-x-1 md:space-x-2">
@@ -114,7 +112,7 @@ const TypingCode = () => {
       </div>
 
       {/* Code Content */}
-      <div className="space-y-1 max-h-48 md:max-h-96 overflow-y-auto">
+      <div className="space-y-1 max-h-48 md:max-h-96 overflow-y-auto overflow-x-hidden">
         {displayedCode.map((line, index) => (
           <motion.div
             key={index}
@@ -123,8 +121,10 @@ const TypingCode = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.1 }}
           >
-            <span className="text-gray-500 mr-2 md:mr-4 select-none w-4 md:w-8 text-right text-xs">{index + 1}</span>
-            <span className="text-green-400 text-xs md:text-sm">
+            <span className="text-gray-500 mr-2 md:mr-4 select-none w-4 md:w-8 text-right text-xs flex-shrink-0">
+              {index + 1}
+            </span>
+            <span className="text-green-400 text-xs md:text-sm break-all">
               {line}
               {index === currentLine && (
                 <motion.span
@@ -174,7 +174,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 relative overflow-hidden"
+      className="min-h-screen w-full max-w-full bg-gradient-to-br from-black via-gray-900 to-purple-900 relative overflow-hidden"
     >
       {/* Matrix Code Rain Background */}
       <CodeRain />
@@ -183,7 +183,7 @@ const Hero = () => {
       <FloatingLogo />
 
       {/* Glitch Effects - Reduced on mobile */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
@@ -202,8 +202,8 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
-        <div className="text-center text-white max-w-6xl w-full">
+      <div className="relative z-10 flex items-center justify-center min-h-screen px-4 w-full">
+        <div className="text-center text-white w-full max-w-6xl">
           {/* Header */}
           <motion.div
             className="mb-4 md:mb-6"
@@ -212,7 +212,7 @@ const Hero = () => {
             transition={{ duration: 1 }}
           >
             <motion.h1
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-2 md:mb-4 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-2 md:mb-4 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent break-words"
               animate={{
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
@@ -225,7 +225,7 @@ const Hero = () => {
               &gt; Mohammad Naqui_
             </motion.h1>
             <motion.p
-              className="text-sm sm:text-base md:text-xl lg:text-2xl text-green-400 font-mono"
+              className="text-sm sm:text-base md:text-xl lg:text-2xl text-green-400 font-mono break-words"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
@@ -238,7 +238,7 @@ const Hero = () => {
           <AnimatePresence>
             {showTerminal && (
               <motion.div
-                className="mb-4 md:mb-6 flex justify-center"
+                className="mb-4 md:mb-6 flex justify-center w-full"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
@@ -250,7 +250,7 @@ const Hero = () => {
 
           {/* Action Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mt-6 md:mt-8 px-4"
+            className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mt-6 md:mt-8 px-4 w-full"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.5 }}
@@ -275,27 +275,33 @@ const Hero = () => {
             </motion.a>
           </motion.div>
 
-         
+          {/* System Status */}
+          <motion.div
+            className="mt-8 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 text-xs md:text-sm px-4 w-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2, duration: 1 }}
+          >
+            {[
+              { label: "Status", value: "Online", color: "text-green-400" },
+              { label: "Projects", value: "3+", color: "text-blue-400" },
+              { label: "Events", value: "15+", color: "text-purple-400" },
+              { label: "CGPA", value: "8.16", color: "text-yellow-400" },
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                className="bg-black/40 backdrop-blur-sm rounded-lg p-2 md:p-3 border border-gray-700"
+                whileHover={{ scale: 1.05, borderColor: "#4f46e5" }}
+              >
+                <div className="text-gray-400 text-xs">{stat.label}</div>
+                <div className={`font-bold ${stat.color} text-sm md:text-base`}>{stat.value}</div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 text-green-400"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-      >
-        <div className="text-center">
-          <div className="text-xs mb-2">scroll down</div>
-          <div className="w-4 h-6 md:w-6 md:h-10 border-2 border-green-400 rounded-full flex justify-center">
-            <motion.div
-              className="w-0.5 h-2 md:w-1 md:h-3 bg-green-400 rounded-full mt-1 md:mt-2"
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-            />
-          </div>
-        </div>
-      </motion.div>
+    
     </section>
   )
 }

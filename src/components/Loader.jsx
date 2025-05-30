@@ -1,5 +1,3 @@
-"use client"
-
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
@@ -13,9 +11,9 @@ const Loader = () => {
           clearInterval(interval)
           return 100
         }
-        return prev + 3 // Increased increment for faster loading
+        return prev + 2 
       })
-    }, 40) // Reduced interval for smoother progress
+    }, 20) 
 
     return () => clearInterval(interval)
   }, [])

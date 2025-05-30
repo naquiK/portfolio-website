@@ -1,4 +1,4 @@
-"use client"
+
 
 import { useState } from "react"
 import { motion } from "framer-motion"
@@ -19,9 +19,9 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle form submission here
+ 
     console.log("Form submitted:", formData)
-    // Reset form
+
     setFormData({ name: "", email: "", message: "" })
   }
 
@@ -29,7 +29,7 @@ const Contact = () => {
     {
       icon: "📧",
       label: "Email",
-      value: "Nknaqui72@gmail.com",
+      value: "nknaqui72@gmail.com",
       link: "mailto:Nknaqui72@gmail.com",
     },
     {
@@ -47,7 +47,7 @@ const Contact = () => {
     {
       icon: "🌐",
       label: "Portfolio",
-      value: "mohammad-naqui.dev",
+      value: "https://portfolio-website-git-master-naquiks-projects.vercel.app/",
       link: "#home",
     },
   ]

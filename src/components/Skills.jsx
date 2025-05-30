@@ -1,11 +1,10 @@
-"use client"
 import { motion } from "framer-motion"
 
 const Skills = () => {
   const skills = [
     { name: "Java", level: 90, color: "bg-red-500" },
     { name: "React", level: 95, color: "bg-blue-500" },
-    { name: "Next.js", level: 88, color: "bg-gray-800" },
+    { name: "Next.js", level: 88, color: "bg-gray-200" },
     { name: "Python", level: 85, color: "bg-green-500" },
     { name: "JavaScript", level: 92, color: "bg-yellow-500" },
     { name: "Tailwind CSS", level: 90, color: "bg-cyan-500" },

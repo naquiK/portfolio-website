@@ -1,5 +1,6 @@
-"use client"
+
 import { motion } from "framer-motion"
+import img from "../assets/img.jpg"
 
 const About = () => {
   return (
@@ -58,7 +59,7 @@ const About = () => {
             <div className="relative">
               <div className="w-80 h-80 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center">
                 <img
-                  src="/placeholder.svg?height=300&width=300"
+                  src={img}
                   alt="Mohammad Naqui"
                   className="w-72 h-72 rounded-full object-cover border-4 border-white shadow-xl"
                 />
