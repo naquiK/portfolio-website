@@ -1,8 +1,6 @@
 "use client"
 
-import { useRef, useState, useEffect } from "react"
-import { Canvas, useFrame } from "@react-three/fiber"
-import { OrbitControls, Text3D, Environment } from "@react-three/drei"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 const CodeRain = () => {
@@ -22,7 +20,7 @@ const CodeRain = () => {
             y: [-50, window.innerHeight + 50],
           }}
           transition={{
-            duration: Math.random() * 3 + 2, 
+            duration: Math.random() * 3 + 2,
             repeat: Number.POSITIVE_INFINITY,
             delay: Math.random() * 5,
             ease: "linear",
@@ -145,33 +143,23 @@ const TypingCode = () => {
   )
 }
 
-const FloatingHologram = () => {
-  const meshRef = useRef()
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.5
-      meshRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.2
-    }
-  })
-
+// Simple 2D floating logo instead of 3D
+const FloatingLogo = () => {
   return (
-    <group ref={meshRef}>
-      <Text3D
-        font="/fonts/Geist_Bold.json"
-        size={0.3}
-        height={0.05}
-        curveSegments={12}
-        bevelEnabled
-        bevelThickness={0.01}
-        bevelSize={0.01}
-        bevelOffset={0}
-        bevelSegments={5}
-      >
-        MN
-        <meshStandardMaterial color="#4f46e5" emissive="#4f46e5" emissiveIntensity={0.3} />
-      </Text3D>
-    </group>
+    <motion.div
+      className="absolute top-20 right-4 md:right-10 w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-lg hidden sm:block"
+      animate={{
+        y: [0, -10, 0],
+        rotate: [0, 5, -5, 0],
+      }}
+      transition={{
+        duration: 4,
+        repeat: Number.POSITIVE_INFINITY,
+        ease: "easeInOut",
+      }}
+    >
+      MN
+    </motion.div>
   )
 }
 
@@ -179,7 +167,7 @@ const Hero = () => {
   const [showTerminal, setShowTerminal] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowTerminal(true), 1000)
+    const timer = setTimeout(() => setShowTerminal(true), 500)
     return () => clearTimeout(timer)
   }, [])
 
@@ -191,16 +179,8 @@ const Hero = () => {
       {/* Matrix Code Rain Background */}
       <CodeRain />
 
-      {/* 3D Hologram - Hidden on mobile for performance */}
-      <div className="absolute top-20 right-4 md:right-10 w-16 h-16 md:w-32 md:h-32 hidden sm:block">
-        <Canvas camera={{ position: [0, 0, 3] }}>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} />
-          <FloatingHologram />
-          <Environment preset="night" />
-          <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={2} />
-        </Canvas>
-      </div>
+      {/* Floating Logo - Replaced 3D with 2D */}
+      <FloatingLogo />
 
       {/* Glitch Effects - Reduced on mobile */}
       <div className="absolute inset-0 pointer-events-none">
@@ -273,7 +253,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mt-6 md:mt-8 px-4"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 2 }}
+            transition={{ duration: 1, delay: 1.5 }}
           >
             <motion.a
               href="#projects"
@@ -295,29 +275,7 @@ const Hero = () => {
             </motion.a>
           </motion.div>
 
-          {/* System Status */}
-          <motion.div
-            className="mt-8 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 text-xs md:text-sm px-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 3, duration: 1 }}
-          >
-            {[
-              { label: "Status", value: "Online", color: "text-green-400" },
-              { label: "Projects", value: "3+", color: "text-blue-400" },
-              { label: "Events", value: "15+", color: "text-purple-400" },
-              { label: "CGPA", value: "8.16", color: "text-yellow-400" },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                className="bg-black/40 backdrop-blur-sm rounded-lg p-2 md:p-3 border border-gray-700"
-                whileHover={{ scale: 1.05, borderColor: "#4f46e5" }}
-              >
-                <div className="text-gray-400 text-xs">{stat.label}</div>
-                <div className={`font-bold ${stat.color} text-sm md:text-base`}>{stat.value}</div>
-              </motion.div>
-            ))}
-          </motion.div>
+         
         </div>
       </div>
 

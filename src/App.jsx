@@ -15,10 +15,10 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Simulate loading time for 3D elements and assets
+    // Reduced loading time and ensure it completes
     const timer = setTimeout(() => {
       setLoading(false)
-    }, 3000)
+    }, 2000) // Reduced from 3000 to 2000
 
     return () => clearTimeout(timer)
   }, [])

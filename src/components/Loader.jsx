@@ -13,9 +13,9 @@ const Loader = () => {
           clearInterval(interval)
           return 100
         }
-        return prev + 2
+        return prev + 3 // Increased increment for faster loading
       })
-    }, 50)
+    }, 40) // Reduced interval for smoother progress
 
     return () => clearInterval(interval)
   }, [])
@@ -37,7 +37,7 @@ const Loader = () => {
     <div className="fixed inset-0 bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 flex items-center justify-center z-50">
       {/* Animated Background Particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(50)].map((_, i) => (
+        {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-indigo-400 rounded-full"
@@ -67,14 +67,14 @@ const Loader = () => {
           animate={{ scale: 1, rotate: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <div className="w-24 h-24 mx-auto bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-4xl text-white font-bold shadow-2xl">
+          <div className="w-20 h-20 md:w-24 md:h-24 mx-auto bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-3xl md:text-4xl text-white font-bold shadow-2xl">
             MN
           </div>
         </motion.div>
 
         {/* Animated Code Block */}
         <motion.div
-          className="bg-gray-800/80 backdrop-blur-sm rounded-lg p-6 mb-8 text-left max-w-md mx-auto border border-gray-700"
+          className="bg-gray-800/80 backdrop-blur-sm rounded-lg p-4 md:p-6 mb-8 text-left max-w-md mx-auto border border-gray-700"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -87,7 +87,7 @@ const Loader = () => {
             </div>
             <span className="ml-4 text-gray-400 text-sm">portfolio.jsx</span>
           </div>
-          <div className="font-mono text-sm">
+          <div className="font-mono text-xs md:text-sm">
             {codeLines.map((line, index) => (
               <motion.div
                 key={index}
@@ -105,7 +105,7 @@ const Loader = () => {
 
         {/* Loading Text */}
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-white mb-4"
+          className="text-2xl md:text-3xl font-bold text-white mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.5 }}
@@ -114,12 +114,12 @@ const Loader = () => {
         </motion.h2>
 
         <motion.p
-          className="text-gray-300 mb-8 text-lg"
+          className="text-gray-300 mb-8 text-base md:text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.7 }}
         >
-          Initializing 3D elements and tech magic...
+          Initializing components...
         </motion.p>
 
         {/* Progress Bar */}
@@ -127,7 +127,7 @@ const Loader = () => {
           className="w-full max-w-md mx-auto"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 2 }}
+          transition={{ duration: 0.8, delay: 1.8 }}
         >
           <div className="flex justify-between text-sm text-gray-400 mb-2">
             <span>Loading...</span>
@@ -145,15 +145,15 @@ const Loader = () => {
 
         {/* Tech Stack Icons */}
         <motion.div
-          className="flex justify-center space-x-6 mt-8"
+          className="flex justify-center space-x-4 md:space-x-6 mt-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 2.2 }}
+          transition={{ duration: 0.8, delay: 2 }}
         >
           {["⚛️", "🔥", "⚡", "🚀", "💻"].map((icon, index) => (
             <motion.div
               key={index}
-              className="text-2xl"
+              className="text-xl md:text-2xl"
               animate={{
                 y: [0, -10, 0],
                 rotate: [0, 5, -5, 0],

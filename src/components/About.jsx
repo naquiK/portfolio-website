@@ -42,7 +42,7 @@ const About = () => {
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md">
                 <h4 className="font-semibold text-gray-900">Graduation</h4>
-                <p className="text-gray-600">October 2025</p>
+                <p className="text-gray-600">july 2027</p>
                 <p className="text-sm text-gray-500">GBU</p>
               </div>
             </div>
