@@ -5,11 +5,12 @@ const Skills = () => {
     { name: "Java", level: 90, color: "bg-red-500" },
     { name: "React", level: 95, color: "bg-blue-500" },
     { name: "Next.js", level: 88, color: "bg-gray-200" },
+    { name: "Node", level: 85, color: "bg-indigo-500" },
     { name: "Python", level: 85, color: "bg-green-500" },
     { name: "JavaScript", level: 92, color: "bg-yellow-500" },
     { name: "Tailwind CSS", level: 90, color: "bg-cyan-500" },
     { name: "Machine Learning", level: 80, color: "bg-purple-500" },
-    { name: "C/C++", level: 85, color: "bg-indigo-500" },
+    { name: "C/C++", level: 85, color: "bg-indigo-100" },
   ]
 
   const containerVariants = {
@@ -28,7 +29,7 @@ const Skills = () => {
   }
 
   return (
-    <section id="skills" className="py-20 bg-gray-900">
+    <section id="skills" className="py-20 bg-gray-900 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"

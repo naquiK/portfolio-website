@@ -36,13 +36,13 @@ const Contact = () => {
       icon: "💼",
       label: "GitHub",
       value: "naquik",
-      link: "https://github.com/naquik",
+      link: "https://github.com/naquiK",
     },
     {
       icon: "🔗",
       label: "LinkedIn",
       value: "Mohammad Naqui",
-      link: "https://linkedin.com/in/mohammad-naqui",
+      link: "https://www.linkedin.com/in/mohammad-naqui-096624292/",
     },
     {
       icon: "🌐",

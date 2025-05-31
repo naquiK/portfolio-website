@@ -123,7 +123,7 @@ const Navigation = () => {
                     e.preventDefault()
                     handleNavClick(item.href)
                   }}
-                  className={`block px-4 py-3 rounded-lg transition-all duration-200 flex items-center space-x-3 ${
+                  className={` px-4 py-3 rounded-lg transition-all duration-200 flex items-center space-x-3 ${
                     activeSection === item.href.slice(1)
                       ? "bg-indigo-600 text-white"
                       : "text-gray-300 hover:text-white hover:bg-gray-800"
