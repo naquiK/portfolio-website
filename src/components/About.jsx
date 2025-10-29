@@ -28,7 +28,7 @@ const About = () => {
             <h3 className="text-2xl font-semibold text-gray-900">Passionate Developer & Tech Leader</h3>
             <p className="text-lg text-gray-600 leading-relaxed">
               I'm Mohammad Naqui, a dedicated Computer Science Engineering student at Gautam Buddha University with a
-              CGPA of 8.16. My journey in technology spans full-stack web development, machine learning, and event
+              CGPA of 7.54. My journey in technology spans full-stack web development, machine learning, and event
               management.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
