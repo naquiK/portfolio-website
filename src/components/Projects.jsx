@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 const Projects = () => {
   const projects = [
     {
-      title: "Official Tech Fest Website – Ignition 2025",
+      title: "Official Tech Fest Website  Ignition 2025",
       description:
         "Developed the official website for university's annual tech fest using React, Three.js, Framer Motion, GSAP, Tailwind CSS, and custom particle effects.",
       technologies: ["React", "Three.js", "Framer Motion", "GSAP", "Tailwind CSS"],
@@ -41,6 +41,20 @@ const Projects = () => {
         "Responsive across all devices",
       ],
     },
+    {
+  title: "GBU Official Cultural Fest - Abhivyanjana Website",
+  description:
+    "A modern and responsive website for GBU's cultural fest ‘Abhivyanjana’, featuring event schedules, registrations, artist highlights, and gallery showcase.",
+  technologies: ["React", "Tailwind CSS", "GSAP", "Framer Motion", "JavaScript"],
+  link: "https://abhivyanjana.gbu.ac.in/",
+  features: [
+    "Clean and modern fest-themed UI",
+    "Event schedule and registration",
+    "Artist highlights and gallery showcase",
+    "Responsive and animation-rich design",
+  ]
+}
+
   ]
 
   return (

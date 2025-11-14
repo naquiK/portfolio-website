@@ -39,7 +39,7 @@ const About = () => {
               <div className="bg-white p-4 rounded-lg shadow-md">
                 <h4 className="font-semibold text-gray-900">Education</h4>
                 <p className="text-gray-600">B.Tech CSE</p>
-                <p className="text-sm text-gray-500">CGPA: 8.16</p>
+                <p className="text-sm text-gray-500">CGPA: 7.54</p>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md">
                 <h4 className="font-semibold text-gray-900">Graduation</h4>
